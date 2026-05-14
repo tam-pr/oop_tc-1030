@@ -5,22 +5,26 @@
 #include <vector>
 using namespace std;
 
-class Room{ 
+
+
+class Room { 
     private: 
         int roomNumber; 
         bool isAvailable; 
-        vector <int> occupiedRooms = {}; 
+        static vector <int> occupiedRooms;  
 
     public:
+
         int setroomNumber(){
             cout <<"Enter room number: " <<endl;
             cin >> roomNumber;
-            occupiedRooms.push_back(roomNumber);
             return roomNumber;
+
 
         }; 
 
         bool getisAvailable(){
+
             if (occupiedRooms.size() == 0){
                 isAvailable = true; 
                 cout <<"Room is available" <<endl;
@@ -39,19 +43,19 @@ class Room{
 
                 }; 
             }; 
+            occupiedRooms.push_back(roomNumber); 
             return isAvailable;
         }; 
 
+
 }; 
+
+vector <int> Room::occupiedRooms; 
 
 int main() {
         Room room1; 
             room1.setroomNumber();
             cout <<room1.getisAvailable() <<endl;
 
-
-        Room room2;
-            room2.setroomNumber();
-            cout <<room2.getisAvailable() <<endl;
     return 0;
     }; 
