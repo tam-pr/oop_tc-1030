@@ -48,6 +48,11 @@ class Room: public Hotel {
 
     public:
         int getroomNumber(){
+            if (pointer > roomNumbers.size()){
+                cout <<"HOTEL AT CAPACITY" <<endl;
+                roomNumber = -1;
+            }
+
             roomNumber = roomNumbers[pointer];
             pointer++;
             cout <<"Room number: " << roomNumber <<endl;
@@ -55,7 +60,10 @@ class Room: public Hotel {
 
         }; 
 
-        bool getisAvailable(){
+        void getisAvailable(){
+            if (roomNumber == -1){
+                isAvailable = false; 
+            }
 
             if (occupiedRooms.size() == 0){
                 isAvailable = true; 
@@ -76,7 +84,16 @@ class Room: public Hotel {
                 }; 
             }; 
             occupiedRooms.push_back(roomNumber); 
-            return isAvailable;
+        }; 
+
+        void roomStatus(){
+            getisAvailable();
+            if (isAvailable == true){
+                cout <<"Room is available" <<endl;
+            }
+            else {
+                cout <<"Room is occupied" <<endl;
+            }
         }; 
 
 
@@ -94,11 +111,11 @@ int main() {
 
         Room room1; 
             room1.getroomNumber();
-            cout <<room1.getisAvailable() <<endl;
+            room1.roomStatus();
         
         Room room2; 
             room2.getroomNumber();
-            cout <<room2.getisAvailable() <<endl;
+            room2.roomStatus();
 
     return 0;
     }; 
