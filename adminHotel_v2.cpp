@@ -104,7 +104,7 @@ class Room: public Hotel {
         void checkIn(){
             string roomState =roomStatus();
             if (roomState != "Available"){
-                cout <<" Cant process checkin rn, hotels fully booked :(" <<endl;
+                cout <<"Cant process another checkin rn, hotels fully booked :(" <<endl;
             }
             else {
                 cout <<"Guest name: " <<endl;
