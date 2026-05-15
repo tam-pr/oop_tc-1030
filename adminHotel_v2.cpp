@@ -47,22 +47,25 @@ class Room: public Hotel {
         static vector <int> occupiedRooms;  
 
         static int pointer; 
+        static vector <string> reservationSummary; 
 
     public: 
         string guestName; 
         int numberAdults;
         int numberChildren;
+        double creditVoucher; 
+        double extraCharges; 
 
         int getroomNumber(){
-            if (pointer < roomNumbers.size()
-            ){
+            if (pointer < roomNumbers.size()){
                 roomNumber = roomNumbers[pointer]; 
-                pointer++; 
-                return roomNumber; 
             }
+
             else {
-                return -1; 
+                roomNumber = -1; 
             }; 
+
+            return roomNumber; 
         }
         ; 
 
@@ -89,7 +92,7 @@ class Room: public Hotel {
     
             getisAvailable();
             string roomState;
-            if (roomNumber ==0){
+            if (roomNumber == -1){
                 roomState = "HOTEL AT CAPACITY"; 
             }
             else if (isAvailable == true){
@@ -101,23 +104,67 @@ class Room: public Hotel {
             return roomState; 
         };
 
+        int getnumberAdults(){
+            cout <<"Enter number of adults: " <<endl;
+            cin >> numberAdults; 
+            return numberAdults; 
+        };
+
+        int getnumberChildren(){
+            cout <<"Enter number of children: " <<endl;
+            cin >> numberChildren; 
+            return numberChildren; 
+        };
+
+        int getstartingTariff(){
+            getnumberAdults();
+            getnumberChildren();
+            int totalTariff = (numberAdults * adultTariff) + (numberChildren * childTariff); 
+            return totalTariff; 
+        };
+
+        int openVoucher(){
+            cout <<"Enter open credit voucher amount: " <<endl;
+            cin >> creditVoucher; 
+            return creditVoucher;
+        }; 
+
         void checkIn(){
             string roomState =roomStatus();
+            cout << "Operation " <<pointer <<endl;
             if (roomState != "Available"){
                 cout <<"Cant process another checkin rn, hotels fully booked :(" <<endl;
             }
             else {
+
                 cout <<"Guest name: " <<endl;
                 cin >> guestName;
-                cout << "The room " << roomNumber << " is " << roomState << " for the reservation under the guest " << guestName << endl;
+                int totalTariff = getstartingTariff();
+                double creditVoucher= openVoucher();
+
+                string reservationMessage = "The room " + to_string(roomNumber) + " is " + roomState + " for the reservation under the guest " 
+                + guestName + " at the starting tariff of $" + to_string(totalTariff) + " and has left an open credit voucher of $" + to_string(creditVoucher);
+                
+                cout << reservationMessage << endl;
+                occupiedRooms.push_back(roomNumber);
+                reservationSummary.push_back(reservationMessage);
+                pointer++;
+
             }
         };
+
+        void checkOut(){
+            
+        }; 
+
+
 
 
 }; 
 
 vector <int> Hotel::roomNumbers;
 vector <int> Room::occupiedRooms; 
+vector <string> Room::reservationSummary;
 int Room::pointer = 0;
 
 int main() {
@@ -128,8 +175,6 @@ int main() {
 
         Room room1;
             room1.checkIn();
-        Room room2;
-            room2.checkIn();
-
+            
     return 0;
     }; 
