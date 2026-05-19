@@ -46,3 +46,4 @@ create folder desde terminal
 mkdir foldername
 
 create file desde la terminal
+touch filename
