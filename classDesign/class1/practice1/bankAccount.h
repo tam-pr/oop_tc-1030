@@ -1,3 +1,6 @@
+//A0648580 Tam Padilla
+//github: tam-pr
+
 #ifndef BANKACCOUNT_H
 #define BANKACCOUNT_H
 

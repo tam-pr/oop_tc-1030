@@ -1,3 +1,6 @@
+//A0648580 Tam Padilla
+//github: tam-pr
+
 #include "bankAccount.h"
 #include <iostream>
 #include <string>
@@ -15,7 +18,7 @@ bankAccount::bankAccount(string accountNumber, string ownerName, double balance)
 };
 
 void bankAccount::setupAccount(string accountNumber, string ownerName, double accountBalance){
-    if(accountNumber.length() == 4 && accountNumber.length() <5){
+    if(accountNumber.length() == 4){
         this->accountNumber = accountNumber; 
     }else{
         this->accountNumber = "0000";
@@ -53,7 +56,9 @@ void bankAccount::deposit(double deposit){
 }; 
 
 void bankAccount::withdraw(double withdraw){
-    this->accountBalance-=withdraw; 
+    if(this->accountBalance>withdraw){
+        this->accountBalance-=withdraw; 
+    }
 }; 
 
 void bankAccount::transfer(bankAccount& account, double transfer){ 
@@ -61,4 +66,18 @@ void bankAccount::transfer(bankAccount& account, double transfer){
         this->withdraw(transfer); 
         account.deposit(transfer); 
     }
+}; 
+
+bool bankAccount::isEmpty(){
+    return this->accountBalance ==0; 
+};
+
+void bankAccount::makeCopy(bankAccount account){
+    this->accountNumber = account.accountNumber; 
+    this->ownerName =account.ownerName; 
+    this->accountBalance = account.accountBalance; 
+}; 
+
+bankAccount bankAccount::getCopy(){
+    return bankAccount(this->accountNumber, this->ownerName, this->accountBalance); 
 }; 
