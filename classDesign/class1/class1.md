@@ -1,6 +1,6 @@
 
-- es un metodo privado 
-+ metodo público 
+- "-" es un metodo privado 
++ "+" metodo público 
 
 clase() 
 es un constructor 
@@ -33,4 +33,11 @@ var++
     this->hr = ++this->hr%24; explicar
     es porq si lo hicieras al reves, primero sacaria el residual y luego le agregaria el ++ 
 
-    
+
+commits desde la terminal 
+
+git status
+git . <- todas mis files con cambios
+git filename.cpp <- file especifica
+git commit -m 
+git push 
