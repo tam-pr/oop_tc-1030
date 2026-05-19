@@ -37,7 +37,12 @@ var++
 commits desde la terminal 
 
 git status
-git . <- todas mis files con cambios
-git filename.cpp <- file especifica
+git add . <- todas mis files con cambios
+git add filename.cpp <- file especifica
 git commit -m 
 git push 
+
+create folder desde terminal
+mkdir foldername
+
+create file desde la terminal
