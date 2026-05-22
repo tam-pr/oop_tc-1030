@@ -9,6 +9,12 @@ class Caja:public Rectangulo{
     public: 
         Caja();
         Caja(double largo, double ancho, double altura); 
+
+        double perimetro(); 
+        double area(); 
+        double volumen(); 
+
+        void imprimir(); 
 };
 
 #endif 

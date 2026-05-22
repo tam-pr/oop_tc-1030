@@ -4,6 +4,8 @@
 #include "Figura.h"
 #include "Rectangulo.h"
 #include "Cuadrado.h"
+#include "Caja.h"
+
 #include <iostream>
 using namespace std; 
 
@@ -16,7 +18,7 @@ int main(){
     fig1.imprimir(); 
     cout<<endl; 
 
-    Rectangulo rec1(2,3); 
+    Rectangulo rec1(2.0,3.0); 
 
     cout << "El perimetro es: " <<rec1.perimetro() <<endl; 
     cout << "El area es: " << rec1.area() <<endl; 
@@ -24,10 +26,18 @@ int main(){
     rec1.imprimir(); 
     cout<<endl; 
 
-    Cuadrado cuad1(); 
+    Cuadrado cuad1; 
     cout << "El perimetro es: " <<cuad1.perimetro() <<endl; 
     cout << "El area es: " << cuad1.area() <<endl; 
     cout << "El volumen es: " <<cuad1.volumen() <<endl;
+    cuad1.imprimir(); 
+    cout<<endl; 
+
+
+    Caja caja1; 
+    cout << "El perimetro es: " <<caja1.perimetro() <<endl; 
+    cout << "El area es: " << caja1.area() <<endl; 
+    cout << "El volumen es: " <<caja1.volumen() <<endl;
     cuad1.imprimir(); 
     cout<<endl; 
 
