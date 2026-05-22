@@ -1,9 +1,12 @@
+//A0648580 Tam Padilla
+//github: tam-pr
+
 #ifndef RECTANGULO_H
 #define RECTANGULO_H
-#include "figura.h"
+#include "Figura.h"
 
 class Rectangulo:public Figura{
-    private: 
+    protected: 
         double largo, 
                ancho; 
     
@@ -11,6 +14,8 @@ class Rectangulo:public Figura{
         Rectangulo(); 
         Rectangulo(double largo, double ancho); 
         double perimetro(); 
+        double area(); 
+        void imprimir(); 
 }; 
 
 #endif

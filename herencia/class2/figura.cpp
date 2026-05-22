@@ -1,4 +1,7 @@
-#include "figura.h"
+//A0648580 Tam Padilla
+//github: tam-pr
+
+#include "Figura.h"
 #include <iostream>
 using namespace std; 
 
@@ -14,5 +17,5 @@ double Figura::volumen(){
 }; 
 
 void Figura::imprimir(){
-    cout << "Figura no definida" << endl; 
+    cout << "Soy una figura abstracta" << endl; 
 }; 

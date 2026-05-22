@@ -1,3 +1,6 @@
+//A0648580 Tam Padilla
+//github: tam-pr
+
 #ifndef FIGURA_H
 #define FIGURA_H
 
